@@ -511,7 +511,6 @@ public class InventarioTienda extends VerticalLayout {
 
                         String costoUnitarioFormateado = String.format("$%.2f", costoPromedioVigente);
                         String totalFormateado = String.format("$%.2f", cantidadRestar * costoPromedioVigente);
-
                         listaKardex.add(new ItemKardex(fechaHoraActual, nombreEnviar, "Salida", cantidadRestar, costoUnitarioFormateado, totalFormateado));
 
                         productosEnviar[indice].clear();
@@ -807,4 +806,4 @@ public class InventarioTienda extends VerticalLayout {
         public String getCostoUnitario() { return costoUnitario; }
         public String getTotal() { return total; }
     }
-}
+} 
