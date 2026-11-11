@@ -12,275 +12,346 @@ import com.vaadin.flow.router.Route;
 @Route("confiteria")
 public class ConfiteriaView extends VerticalLayout {
 
-     public static int stockChocolatina = 45;
+    public static int stockChocolatina = 25;
+    public static double precioChocolatina = 4000.0;
     public Span textoStockChocolatina;
 
-     public static int stockBombon = 80;
+    public static int stockBombon = 8;
+    public static double precioBombon = 600.0;
     public Span textoStockBombon;
 
-     public static int stockGomitas = 35;
+    public static int stockGomitas = 15;
+    public static double precioGomitas = 2500.0;
     public Span textoStockGomitas;
 
-     public static int stockGalletas = 50;
+    public static int stockGalletas = 30;
+    public static double precioGalletas = 1800.0;
     public Span textoStockGalletas;
 
-     public static int stockPapasMargarita = 25;
+    public static int stockPapasMargarita = 12;
+    public static double precioPapasMargarita = 2800.0;
     public Span textoStockPapasMargarita;
 
-     public static int stockCheetos = 30;
+    public static int stockCheetos = 5;
+    public static double precioCheetos = 2500.0;
     public Span textoStockCheetos;
 
-     public static int stockDoritos = 20;
+    public static int stockDoritos = 18;
+    public static double precioDoritos = 3000.0;
     public Span textoStockDoritos;
 
-     public static int stockChicles = 100;
+    public static int stockChicles = 40;
+    public static double precioChicles = 500.0;
     public Span textoStockChicles;
 
-     public static int stockMasmelo = 40;
+    public static int stockMasmelo = 14;
+    public static double precioMasmelo = 2000.0;
     public Span textoStockMasmelo;
 
-     public static int stockMani = 15;
+    public static int stockMani = 22;
+    public static double precioMani = 2200.0;
     public Span textoStockMani;
 
-     public static int stockMenta = 120;
+    public static int stockMenta = 35;
+    public static double precioMenta = 300.0;
     public Span textoStockMenta;
 
-     public static int stockChupeta = 60;
+    public static int stockChupeta = 7;
+    public static double precioChupeta = 800.0;
     public Span textoStockChupeta;
 
-     public static int stockBarrilete = 55;
+    public static int stockBarrilete = 50;
+    public static double precioBarrilete = 400.0;
     public Span textoStockBarrilete;
 
-     public static int stockChoclitos = 22;
+    public static int stockChoclitos = 16;
+    public static double precioChoclitos = 2500.0;
     public Span textoStockChoclitos;
 
-     public static int stockDetodito = 18;
+    public static int stockDetodito = 9;
+    public static double precioDetodito = 3500.0;
     public Span textoStockDetodito;
 
-     public static int stockTostacos = 28;
+    public static int stockTostacos = 11;
+    public static double precioTostacos = 2500.0;
     public Span textoStockTostacos;
 
-     public static int stockTrululu = 33;
+    public static int stockTrululu = 20;
+    public static double precioTrululu = 1500.0;
     public Span textoStockTrululu;
 
-     public static int stockFrunas = 75;
+    public static int stockFrunas = 45;
+    public static double precioFrunas = 300.0;
     public Span textoStockFrunas;
 
-     public static int stockNucita = 48;
+    public static int stockNucita = 13;
+    public static double precioNucita = 1200.0;
     public Span textoStockNucita;
 
-     public static int stockOreo = 42;
+    public static int stockOreo = 25;
+    public static double precioOreo = 2000.0;
     public Span textoStockOreo;
 
-     public static int stockFestival = 38;
+    public static int stockFestival = 30;
+    public static double precioFestival = 1200.0;
     public Span textoStockFestival;
 
-     public static int stockBurbuja = 65;
+    public static int stockBurbuja = 19;
+    public static double precioBurbuja = 1500.0;
     public Span textoStockBurbuja;
 
-     public static int stockQuipitos = 85;
+    public static int stockQuipitos = 6;
+    public static double precioQuipitos = 1000.0;
     public Span textoStockQuipitos;
 
-     public static int stockSparkies = 52;
+    public static int stockSparkies = 40;
+    public static double precioSparkies = 400.0;
     public Span textoStockSparkies;
 
-     public static int stockChocoBreak = 70;
+    public static int stockChocoBreak = 22;
+    public static double precioChocoBreak = 500.0;
     public Span textoStockChocoBreak;
 
     public ConfiteriaView() {
-        H1 titulo = new H1("Confitería, Paquetes y Dulces");
+        getStyle().set("background-color", "pink");
+        H1 titulo = new H1("Confitería");
         Button botonVolver = new Button("Volver al inicio", e -> UI.getCurrent().navigate(InventarioTienda.class));
 
+        // Fila 1
         VerticalLayout producto1 = new VerticalLayout();
         H2 nombreChocolatina = new H2("Chocolatina Jumbo");
-        Span precioChocolatina = new Span("Precio: $2.500");
+        Span textoPrecioChocolatina = new Span("Precio: $" + precioChocolatina);
         textoStockChocolatina = new Span("Cantidad: " + stockChocolatina);
         textoStockChocolatina.getElement().getThemeList().add("badge");
-        producto1.add(nombreChocolatina, precioChocolatina, textoStockChocolatina);
+        Span estadoChocolatina = crearEtiquetaEstado(stockChocolatina);
+        producto1.add(nombreChocolatina, textoPrecioChocolatina, textoStockChocolatina, estadoChocolatina);
 
         VerticalLayout producto2 = new VerticalLayout();
         H2 nombreBombon = new H2("Bon Bon Bum");
-        Span precioBombon = new Span("Precio: $500");
+        Span textoPrecioBombon = new Span("Precio: $" + precioBombon);
         textoStockBombon = new Span("Cantidad: " + stockBombon);
         textoStockBombon.getElement().getThemeList().add("badge");
-        producto2.add(nombreBombon, precioBombon, textoStockBombon);
+        Span estadoBombon = crearEtiquetaEstado(stockBombon);
+        producto2.add(nombreBombon, textoPrecioBombon, textoStockBombon, estadoBombon);
 
         VerticalLayout producto3 = new VerticalLayout();
         H2 nombreGomitas = new H2("Gomitas Grissly");
-        Span precioGomitas = new Span("Precio: $1.200");
+        Span textoPrecioGomitas = new Span("Precio: $" + precioGomitas);
         textoStockGomitas = new Span("Cantidad: " + stockGomitas);
         textoStockGomitas.getElement().getThemeList().add("badge");
-        producto3.add(nombreGomitas, precioGomitas, textoStockGomitas);
+        Span estadoGomitas = crearEtiquetaEstado(stockGomitas);
+        producto3.add(nombreGomitas, textoPrecioGomitas, textoStockGomitas, estadoGomitas);
 
         VerticalLayout producto4 = new VerticalLayout();
         H2 nombreGalletas = new H2("Galletas Saltín");
-        Span precioGalletas = new Span("Precio: $1.500");
+        Span textoPrecioGalletas = new Span("Precio: $" + precioGalletas);
         textoStockGalletas = new Span("Cantidad: " + stockGalletas);
         textoStockGalletas.getElement().getThemeList().add("badge");
-        producto4.add(nombreGalletas, precioGalletas, textoStockGalletas);
+        Span estadoGalletas = crearEtiquetaEstado(stockGalletas);
+        producto4.add(nombreGalletas, textoPrecioGalletas, textoStockGalletas, estadoGalletas);
 
         VerticalLayout producto5 = new VerticalLayout();
         H2 nombrePapasMargarita = new H2("Papas Margarita");
-        Span precioPapasMargarita = new Span("Precio: $3.000");
+        Span textoPrecioPapasMargarita = new Span("Precio: $" + precioPapasMargarita);
         textoStockPapasMargarita = new Span("Cantidad: " + stockPapasMargarita);
         textoStockPapasMargarita.getElement().getThemeList().add("badge");
-        producto5.add(nombrePapasMargarita, precioPapasMargarita, textoStockPapasMargarita);
+        Span estadoPapasMargarita = crearEtiquetaEstado(stockPapasMargarita);
+        producto5.add(nombrePapasMargarita, textoPrecioPapasMargarita, textoStockPapasMargarita, estadoPapasMargarita);
         
         HorizontalLayout fila1 = new HorizontalLayout(producto1, producto2, producto3, producto4, producto5);
         fila1.setWidthFull();
 
+        // Fila 2
         VerticalLayout producto6 = new VerticalLayout();
         H2 nombreCheetos = new H2("Cheetos");
-        Span precioCheetos = new Span("Precio: $2.000");
+        Span textoPrecioCheetos = new Span("Precio: $" + precioCheetos);
         textoStockCheetos = new Span("Cantidad: " + stockCheetos);
         textoStockCheetos.getElement().getThemeList().add("badge");
-        producto6.add(nombreCheetos, precioCheetos, textoStockCheetos);
+        Span estadoCheetos = crearEtiquetaEstado(stockCheetos);
+        producto6.add(nombreCheetos, textoPrecioCheetos, textoStockCheetos, estadoCheetos);
 
         VerticalLayout producto7 = new VerticalLayout();
         H2 nombreDoritos = new H2("Doritos");
-        Span precioDoritos = new Span("Precio: $3.500");
+        Span textoPrecioDoritos = new Span("Precio: $" + precioDoritos);
         textoStockDoritos = new Span("Cantidad: " + stockDoritos);
         textoStockDoritos.getElement().getThemeList().add("badge");
-        producto7.add(nombreDoritos, precioDoritos, textoStockDoritos);
+        Span estadoDoritos = crearEtiquetaEstado(stockDoritos);
+        producto7.add(nombreDoritos, textoPrecioDoritos, textoStockDoritos, estadoDoritos);
 
         VerticalLayout producto8 = new VerticalLayout();
         H2 nombreChicles = new H2("Chicles Adams");
-        Span precioChicles = new Span("Precio: $300");
+        Span textoPrecioChicles = new Span("Precio: $" + precioChicles);
         textoStockChicles = new Span("Cantidad: " + stockChicles);
         textoStockChicles.getElement().getThemeList().add("badge");
-        producto8.add(nombreChicles, precioChicles, textoStockChicles);
+        Span estadoChicles = crearEtiquetaEstado(stockChicles);
+        producto8.add(nombreChicles, textoPrecioChicles, textoStockChicles, estadoChicles);
 
         VerticalLayout producto9 = new VerticalLayout();
         H2 nombreMasmelo = new H2("Masmelos Millows");
-        Span precioMasmelo = new Span("Precio: $2.500");
+        Span textoPrecioMasmelo = new Span("Precio: $" + precioMasmelo);
         textoStockMasmelo = new Span("Cantidad: " + stockMasmelo);
         textoStockMasmelo.getElement().getThemeList().add("badge");
-        producto9.add(nombreMasmelo, precioMasmelo, textoStockMasmelo);
+        Span estadoMasmelo = crearEtiquetaEstado(stockMasmelo);
+        producto9.add(nombreMasmelo, textoPrecioMasmelo, textoStockMasmelo, estadoMasmelo);
 
         VerticalLayout producto10 = new VerticalLayout();
         H2 nombreMani = new H2("Maní Moto");
-        Span precioMani = new Span("Precio: $1.800");
+        Span textoPrecioMani = new Span("Precio: $" + precioMani);
         textoStockMani = new Span("Cantidad: " + stockMani);
         textoStockMani.getElement().getThemeList().add("badge");
-        producto10.add(nombreMani, precioMani, textoStockMani);
+        Span estadoMani = crearEtiquetaEstado(stockMani);
+        producto10.add(nombreMani, textoPrecioMani, textoStockMani, estadoMani);
         
         HorizontalLayout fila2 = new HorizontalLayout(producto6, producto7, producto8, producto9, producto10);
         fila2.setWidthFull();
 
+        // Fila 3
         VerticalLayout producto11 = new VerticalLayout();
         H2 nombreMenta = new H2("Mentas Chao");
-        Span precioMenta = new Span("Precio: $100");
+        Span textoPrecioMenta = new Span("Precio: $" + precioMenta);
         textoStockMenta = new Span("Cantidad: " + stockMenta);
         textoStockMenta.getElement().getThemeList().add("badge");
-        producto11.add(nombreMenta, precioMenta, textoStockMenta);
+        Span estadoMenta = crearEtiquetaEstado(stockMenta);
+        producto11.add(nombreMenta, textoPrecioMenta, textoStockMenta, estadoMenta);
 
         VerticalLayout producto12 = new VerticalLayout();
         H2 nombreChupeta = new H2("Chupeta Pin Pop");
-        Span precioChupeta = new Span("Precio: $700");
+        Span textoPrecioChupeta = new Span("Precio: $" + precioChupeta);
         textoStockChupeta = new Span("Cantidad: " + stockChupeta);
         textoStockChupeta.getElement().getThemeList().add("badge");
-        producto12.add(nombreChupeta, precioChupeta, textoStockChupeta);
+        Span estadoChupeta = crearEtiquetaEstado(stockChupeta);
+        producto12.add(nombreChupeta, textoPrecioChupeta, textoStockChupeta, estadoChupeta);
 
         VerticalLayout producto13 = new VerticalLayout();
         H2 nombreBarrilete = new H2("Barrilete");
-        Span precioBarrilete = new Span("Precio: $400");
+        Span textoPrecioBarrilete = new Span("Precio: $" + precioBarrilete);
         textoStockBarrilete = new Span("Cantidad: " + stockBarrilete);
         textoStockBarrilete.getElement().getThemeList().add("badge");
-        producto13.add(nombreBarrilete, precioBarrilete, textoStockBarrilete);
+        Span estadoBarrilete = crearEtiquetaEstado(stockBarrilete);
+        producto13.add(nombreBarrilete, textoPrecioBarrilete, textoStockBarrilete, estadoBarrilete);
 
         VerticalLayout producto14 = new VerticalLayout();
         H2 nombreChoclitos = new H2("Choclitos");
-        Span precioChoclitos = new Span("Precio: $1.500");
+        Span textoPrecioChoclitos = new Span("Precio: $" + precioChoclitos);
         textoStockChoclitos = new Span("Cantidad: " + stockChoclitos);
         textoStockChoclitos.getElement().getThemeList().add("badge");
-        producto14.add(nombreChoclitos, precioChoclitos, textoStockChoclitos);
+        Span estadoChoclitos = crearEtiquetaEstado(stockChoclitos);
+        producto14.add(nombreChoclitos, textoPrecioChoclitos, textoStockChoclitos, estadoChoclitos);
 
         VerticalLayout producto15 = new VerticalLayout();
         H2 nombreDetodito = new H2("De Todito");
-        Span precioDetodito = new Span("Precio: $3.800");
+        Span textoPrecioDetodito = new Span("Precio: $" + precioDetodito);
         textoStockDetodito = new Span("Cantidad: " + stockDetodito);
         textoStockDetodito.getElement().getThemeList().add("badge");
-        producto15.add(nombreDetodito, precioDetodito, textoStockDetodito);
+        Span estadoDetodito = crearEtiquetaEstado(stockDetodito);
+        producto15.add(nombreDetodito, textoPrecioDetodito, textoStockDetodito, estadoDetodito);
         
         HorizontalLayout fila3 = new HorizontalLayout(producto11, producto12, producto13, producto14, producto15);
         fila3.setWidthFull();
 
+        // Fila 4
         VerticalLayout producto16 = new VerticalLayout();
         H2 nombreTostacos = new H2("Tostacos");
-        Span precioTostacos = new Span("Precio: $1.200");
+        Span textoPrecioTostacos = new Span("Precio: $" + precioTostacos);
         textoStockTostacos = new Span("Cantidad: " + stockTostacos);
         textoStockTostacos.getElement().getThemeList().add("badge");
-        producto16.add(nombreTostacos, precioTostacos, textoStockTostacos);
+        Span estadoTostacos = crearEtiquetaEstado(stockTostacos);
+        producto16.add(nombreTostacos, textoPrecioTostacos, textoStockTostacos, estadoTostacos);
 
         VerticalLayout producto17 = new VerticalLayout();
         H2 nombreTrululu = new H2("Trululú");
-        Span precioTrululu = new Span("Precio: $1.500");
+        Span textoPrecioTrululu = new Span("Precio: $" + precioTrululu);
         textoStockTrululu = new Span("Cantidad: " + stockTrululu);
         textoStockTrululu.getElement().getThemeList().add("badge");
-        producto17.add(nombreTrululu, precioTrululu, textoStockTrululu);
+        Span estadoTrululu = crearEtiquetaEstado(stockTrululu);
+        producto17.add(nombreTrululu, textoPrecioTrululu, textoStockTrululu, estadoTrululu);
 
         VerticalLayout producto18 = new VerticalLayout();
         H2 nombreFrunas = new H2("Frunas");
-        Span precioFrunas = new Span("Precio: $200");
+        Span textoPrecioFrunas = new Span("Precio: $" + precioFrunas);
         textoStockFrunas = new Span("Cantidad: " + stockFrunas);
         textoStockFrunas.getElement().getThemeList().add("badge");
-        producto18.add(nombreFrunas, precioFrunas, textoStockFrunas);
+        Span estadoFrunas = crearEtiquetaEstado(stockFrunas);
+        producto18.add(nombreFrunas, textoPrecioFrunas, textoStockFrunas, estadoFrunas);
 
         VerticalLayout producto19 = new VerticalLayout();
         H2 nombreNucita = new H2("Nucita");
-        Span precioNucita = new Span("Precio: $800");
+        Span textoPrecioNucita = new Span("Precio: $" + precioNucita);
         textoStockNucita = new Span("Cantidad: " + stockNucita);
         textoStockNucita.getElement().getThemeList().add("badge");
-        producto19.add(nombreNucita, precioNucita, textoStockNucita);
+        Span estadoNucita = crearEtiquetaEstado(stockNucita);
+        producto19.add(nombreNucita, textoPrecioNucita, textoStockNucita, estadoNucita);
 
         VerticalLayout producto20 = new VerticalLayout();
         H2 nombreOreo = new H2("Galletas Oreo");
-        Span precioOreo = new Span("Precio: $2.200");
+        Span textoPrecioOreo = new Span("Precio: $" + precioOreo);
         textoStockOreo = new Span("Cantidad: " + stockOreo);
         textoStockOreo.getElement().getThemeList().add("badge");
-        producto20.add(nombreOreo, precioOreo, textoStockOreo);
+        Span estadoOreo = crearEtiquetaEstado(stockOreo);
+        producto20.add(nombreOreo, textoPrecioOreo, textoStockOreo, estadoOreo);
         
         HorizontalLayout fila4 = new HorizontalLayout(producto16, producto17, producto18, producto19, producto20);
         fila4.setWidthFull();
 
+        // Fila 5
         VerticalLayout producto21 = new VerticalLayout();
         H2 nombreFestival = new H2("Galletas Festival");
-        Span precioFestival = new Span("Precio: $1.400");
+        Span textoPrecioFestival = new Span("Precio: $" + precioFestival);
         textoStockFestival = new Span("Cantidad: " + stockFestival);
         textoStockFestival.getElement().getThemeList().add("badge");
-        producto21.add(nombreFestival, precioFestival, textoStockFestival);
+        Span estadoFestival = crearEtiquetaEstado(stockFestival);
+        producto21.add(nombreFestival, textoPrecioFestival, textoStockFestival, estadoFestival);
 
         VerticalLayout producto22 = new VerticalLayout();
         H2 nombreBurbuja = new H2("Burbuja Jet");
-        Span precioBurbuja = new Span("Precio: $600");
+        Span textoPrecioBurbuja = new Span("Precio: $" + precioBurbuja);
         textoStockBurbuja = new Span("Cantidad: " + stockBurbuja);
         textoStockBurbuja.getElement().getThemeList().add("badge");
-        producto22.add(nombreBurbuja, precioBurbuja, textoStockBurbuja);
+        Span estadoBurbuja = crearEtiquetaEstado(stockBurbuja);
+        producto22.add(nombreBurbuja, textoPrecioBurbuja, textoStockBurbuja, estadoBurbuja);
 
         VerticalLayout producto23 = new VerticalLayout();
         H2 nombreQuipitos = new H2("Quipitos");
-        Span precioQuipitos = new Span("Precio: $500");
+        Span textoPrecioQuipitos = new Span("Precio: $" + precioQuipitos);
         textoStockQuipitos = new Span("Cantidad: " + stockQuipitos);
         textoStockQuipitos.getElement().getThemeList().add("badge");
-        producto23.add(nombreQuipitos, precioQuipitos, textoStockQuipitos);
+        Span estadoQuipitos = crearEtiquetaEstado(stockQuipitos);
+        producto23.add(nombreQuipitos, textoPrecioQuipitos, textoStockQuipitos, estadoQuipitos);
 
         VerticalLayout producto24 = new VerticalLayout();
         H2 nombreSparkies = new H2("Sparkies");
-        Span precioSparkies = new Span("Precio: $800");
+        Span textoPrecioSparkies = new Span("Precio: $" + precioSparkies);
         textoStockSparkies = new Span("Cantidad: " + stockSparkies);
         textoStockSparkies.getElement().getThemeList().add("badge");
-        producto24.add(nombreSparkies, precioSparkies, textoStockSparkies);
+        Span estadoSparkies = crearEtiquetaEstado(stockSparkies);
+        producto24.add(nombreSparkies, textoPrecioSparkies, textoStockSparkies, estadoSparkies);
 
         VerticalLayout producto25 = new VerticalLayout();
         H2 nombreChocoBreak = new H2("Choco Break");
-        Span precioChocoBreak = new Span("Precio: $300");
+        Span textoPrecioChocoBreak = new Span("Precio: $" + precioChocoBreak);
         textoStockChocoBreak = new Span("Cantidad: " + stockChocoBreak);
         textoStockChocoBreak.getElement().getThemeList().add("badge");
-        producto25.add(nombreChocoBreak, precioChocoBreak, textoStockChocoBreak);
+        Span estadoChocoBreak = crearEtiquetaEstado(stockChocoBreak);
+        producto25.add(nombreChocoBreak, textoPrecioChocoBreak, textoStockChocoBreak, estadoChocoBreak);
         
         HorizontalLayout fila5 = new HorizontalLayout(producto21, producto22, producto23, producto24, producto25);
         fila5.setWidthFull();
 
         add(titulo, botonVolver, fila1, fila2, fila3, fila4, fila5);
+    }
+
+    // Método auxiliar privado para evaluar el stock y retornar la etiqueta formateada
+    private Span crearEtiquetaEstado(int stock) {
+        Span etiqueta = new Span();
+        if (stock < 10) {
+            etiqueta.setText("Poco stock");
+            etiqueta.getStyle().set("color", "red");
+            etiqueta.getStyle().set("font-weight", "bold");
+        } else {
+            etiqueta.setText("Bien surtido");
+            etiqueta.getStyle().set("color", "green");
+            etiqueta.getStyle().set("font-weight", "bold");
+        }
+        return etiqueta;
     }
 }
